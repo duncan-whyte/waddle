@@ -163,20 +163,14 @@ loop = function(){
 	requestAnimationFrame(loop)
 }
 
-console.log('2236')
+console.log('2239')
 
 if (!mobile) document.addEventListener('keydown', function(event) {keyvent(event.keyCode)})
 else {
-	$("#hiddenInput").on('keydown', function(e) {
+	$("#hiddenInput").keypress(function(e) {
 		
 		buffer.push(e.which);
 		
-		if (e.which !== 0) {
-			keyvent(e.which)
-		}
-	});
-	$("#hiddenInput").on('input', function(e) {
-		buffer.push(e.which);
 		if (e.which !== 0) {
 			keyvent(e.which)
 		}
