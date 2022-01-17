@@ -175,6 +175,14 @@ else {
 			keyvent(e.which)
 		}
 	});
+	$("#hiddenInput").keyup(function(e) {
+		e.preventDefault()
+		buffer.push(e.which);
+		
+		if (e.which !== 0) {
+			keyvent(e.which)
+		}
+	});
 	/*$("#mainc").keydown(function(e) {
 		if (e.which !== 0) {
 			console.log(e)
