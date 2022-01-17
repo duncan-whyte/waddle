@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <meta name="viewport" content="width=device-width,initial-scale=0.5,user-scalable=no">
   <title>waddle.</title>
   <meta name="author" content="Duncan Whyte">
   <meta name="description" content="waddle">
@@ -75,7 +75,6 @@ var canvas = document.getElementById('mainc')
 var ctx = canvas.getContext('2d')
 
 function resizeEventHandler(){
-	console.log(innerWidth);
     var canvasScale = Math.min(innerWidth / dw, innerHeight / dh);
     canvas.style.width = (canvas.width = Math.floor(dw * canvasScale)) + "px";
     canvas.style.height = (canvas.height = Math.floor(dh * canvasScale)) + "px";
@@ -164,12 +163,20 @@ loop = function(){
 }
 
 if (!mobile) document.addEventListener('keydown', function(event) {keyvent(event.keyCode)})
-else {$("#hiddenInput").keydown(function(e) {
-    if (e.which !== 0) {
-		console.log(e)
-		keyvent(e.which)
-    }
-});}
+else {
+	$("#hiddenInput").keydown(function(e) {
+		if (e.which !== 0) {
+			console.log(e)
+			keyvent(e.which)
+		}
+	});
+	$("#mainc").keydown(function(e) {
+		if (e.which !== 0) {
+			console.log(e)
+			keyvent(e.which)
+		}
+	});
+}
 
 keyvent = function(key) {
     if(key >= 65 && key < 91) {
