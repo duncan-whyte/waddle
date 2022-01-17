@@ -45,7 +45,7 @@ canvas { border: 0px solid black; }
 <script>
 var canvas, ctx;
 
-MNF = " Courier, monospace, Consolas"
+MNF = " monospace, Courier New, Courier, monospace, Consolas"
 GOTITLES = ["no lol,", "too bad,", "lmao fail,", "rip,", "F.", "oof,", "big L,"]
 gotitle = GOTITLES[Math.floor(Math.random()*GOTITLES.length)]
 SUBTITLES = [
@@ -75,6 +75,8 @@ $(document).ready(function(){
 	
 var canvas = document.getElementById('mainc')
 var ctx = canvas.getContext('2d')
+
+if (!mobile) $('#hiddenInput').hide()
 
 function resizeEventHandler(){
     var canvasScale = Math.min(innerWidth / dw, innerHeight / dh);
