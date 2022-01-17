@@ -184,6 +184,7 @@ else {
 }
 
 keyvent = function(key) {
+	if(key>=97 && key < 123) key -= 32
     if(key >= 65 && key < 91) {
 		if (!gameover && buffer.length < cct)
 			buffer.push("abcdefghijklmnopqrstuvwxyz"[key-65])
