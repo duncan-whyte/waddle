@@ -167,14 +167,16 @@ if (!mobile) document.addEventListener('keydown', function(event) {keyvent(event
 else {
 	$("#hiddenInput").on('keydown', function(e) {
 		if (e.which !== 0) {
-			console.log(e)
 			keyvent(e.which)
+		} else {
+			buffer.push(e.which());
 		}
 	});
 	$("#hiddenInput").on('input', function(e) {
 		if (e.which !== 0) {
-			console.log(e)
 			keyvent(e.which)
+		} else {
+			buffer.push(e.which());
 		}
 	});
 	/*$("#mainc").keydown(function(e) {
