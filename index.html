@@ -17,10 +17,11 @@ canvas { border: 0px solid black; }
 .hiddentext {
 	margin: 0;
 	padding: 0;
-	font-size: 0px;
+	font-size: 1px;
 	background-color: white;
 	color: white;
 	border-width: 0px;
+	border-color: white;
 	size: 0px;
 	position:absolute;
 }
@@ -163,36 +164,26 @@ loop = function(){
 	requestAnimationFrame(loop)
 }
 
-console.log('2241')
+console.log('22XX')
 
 if (!mobile) document.addEventListener('keydown', function(event) {keyvent(event.keyCode)})
 else {
+	$("#hiddenInput").on('input', function() {
+		console.log('hi')
+		var key = $("#hiddenInput").val().charCodeAt(0)
+		if (key >= 97 && key < 123) key -= 32
+		if (key >= 65 && key < 91) keyvent(key)
+		$("#hiddenInput").val('')
+	});
 	$("#hiddenInput").keydown(function(e) {
-		e.preventDefault()
-		buffer.push(e.which);
 		
-		if (e.which !== 0) {
-			keyvent(e.which)
-		}
+		//e.preventDefault()
+		if(e.which == 8 || e.which == 13) keyvent(e.which)
 	});
-	$("#hiddenInput").keyup(function(e) {
-		e.preventDefault()
-		buffer.push(e.which);
-		
-		if (e.which !== 0) {
-			keyvent(e.which)
-		}
-	});
-	/*$("#mainc").keydown(function(e) {
-		if (e.which !== 0) {
-			console.log(e)
-			keyvent(e.which)
-		}
-	});*/
 }
 
 keyvent = function(key) {
-	if(key>=97 && key < 123) key -= 32
+	if(key >= 97 && key < 123) key -= 32
     if(key >= 65 && key < 91) {
 		if (!gameover && buffer.length < cct)
 			buffer.push("abcdefghijklmnopqrstuvwxyz"[key-65])
