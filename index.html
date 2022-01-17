@@ -168,7 +168,7 @@ console.log('2241')
 if (!mobile) document.addEventListener('keydown', function(event) {keyvent(event.keyCode)})
 else {
 	$("#hiddenInput").keydown(function(e) {
-		
+		e.preventDefault()
 		buffer.push(e.which);
 		
 		if (e.which !== 0) {
