@@ -30,7 +30,7 @@ canvas { border: 0px solid black; }
 </head>
 <body>
 
-<input id="hiddenInput" type="text" name="hiddenInput" class="hiddentext" autofocus/>
+<input id="hiddenInput" type="text" name="hiddenInput" class="hiddentext" autocomplete="false" autofocus/>
 <canvas id="mainc" width="1000" height="1000">Canvas isn't loading.</canvas>
 
 
@@ -167,7 +167,7 @@ console.log('2241')
 
 if (!mobile) document.addEventListener('keydown', function(event) {keyvent(event.keyCode)})
 else {
-	$("#hiddenInput").keypress(function(e) {
+	$("#hiddenInput").keydown(function(e) {
 		
 		buffer.push(e.which);
 		
